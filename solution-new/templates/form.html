@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="info">
+  <p>Fix this form so it submits data to <cite>/results</cite>.</p>
+</section>
+
+<section class="form">
+  <form action="/results">
+    <label for="type-select">
+      What kind of message would you like?
+    </label>
+    <select id="type-select" name="message_type">
+      <option value="cheery">Cheery</option>
+      <option value="honest">Honest</option>
+      <option value="dreary">Dreary</option>
+    </select>
+    <input type="submit">
+  </form
+</section>
+{% endblock %}

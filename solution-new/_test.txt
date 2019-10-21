@@ -1,0 +1,25 @@
+Check solution
+
+    >>> import server
+
+Test homepage route
+
+    >>> client = server.app.test_client()
+    >>> r = client.get("/")
+    >>> assert b'<input type="text" name="name">' in r.data
+
+Test form route
+
+    >>> r = client.get("/form")
+    >>> assert b"<form action='/results'>" in r.data
+
+Test results route
+
+    >>> r = client.get("/results", query_string={'cheery': 'on', 'honest': None, 'dreary': None})
+    >>> assert b"Unicorns are real!" in r.data
+
+Test save name 
+
+    >>> r = client.post("/save-name", data={'name': "Hermione"})
+    >>> assert b"Hermione" in r.data
+
