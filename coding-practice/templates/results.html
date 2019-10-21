@@ -3,9 +3,28 @@
 {% block content %}
 
 
-<p>
+<!-- <p>
     #4) Finish the route called /results. Then, display appropriate results on 
     this page.
+
+    Look Here!!! {{ messagetype }}
+
+</p> -->
+
+<p>
+{% if messagetype == 'cheery' %}
+    YAYYY for cheery
+{% endif %}
+
+{% if messagetype == 'honest' %}
+    Honesty is the best policy
+{% endif %}
+
+{% if messagetype == 'dreary' %}
+    oh no....
+{% endif %}
+
+    You have chosen to receive a {{ messagetype }} message!
 </p>
 
 

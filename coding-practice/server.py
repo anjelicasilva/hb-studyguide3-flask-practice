@@ -1,4 +1,4 @@
-from flask import Flask, render_template, session, request
+from flask import Flask, render_template, session, request, redirect
 
 app = Flask(__name__)
 app.secret_key = "blahhhhhhhh"
@@ -16,11 +16,25 @@ def show_homepage():
 
 @app.route('/form')
 def show_form():
-    pass
+    """Show user form"""
 
-@app.route('/results')
+    return render_template('form.html')
+
+@app.route('/results', methods=['GET'])
 def show_results():
-    pass
+    """Show user results"""
+
+    message = request.args.get("message_type")
+
+    return render_template('results.html',
+                            messagetype=message)
+
+@app.route('/save-name')
+def save_name():
+
+    session['name'] = request.args.get('firstname')
+
+    return redirect('/form')
 
 
 if __name__ == "__main__":
